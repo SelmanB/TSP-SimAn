@@ -1,5 +1,4 @@
 #include "route.h"
-//#define RND seed*=LCG_A; seed+=LCG_C;
 
 	route::route(int _n,dist **matrix){
 		distances=matrix;
@@ -69,14 +68,14 @@
 		res.obj+=this->distances[index1][res.order[index1]];
 		res.obj+=this->distances[index2][res.order[index2]];
 		res.obj+=this->distances[index3][res.order[index3]];
-		//res.eval();
 		return res;
 	}
 
 	void route::print(){
-		cout<<"Objective:"<<obj<<endl;
+		cout<<"CONNECTIVITY:"<<endl;
 		for(int i=0;i<n;i++)
 			cout<<i<<':'<<order[i]<<"	("<<distances[i][order[i]]<<")"<<endl;
+		cout<<endl<<"OBJECTIVE:"<<obj<<endl;
 	}
 	void route::printObj(){
 		cout<<"Objective:"<<obj<<endl;
