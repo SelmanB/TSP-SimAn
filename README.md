@@ -1,5 +1,10 @@
 # TSP-SimAn
 
+## Building
+there is a makefile in `/src` directory that includes build information using `g++` compiler. On a Unix compatible system, one can use the command to build the project:
+
+`make`
+
 ## Usage
 Call the executable named tsp with these parameters as the following:
 `./tsp <n> <Xfile> <Yfile> <Tmax> <Tmin> <Iters> [<seed>]`
