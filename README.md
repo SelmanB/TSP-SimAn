@@ -1,7 +1,7 @@
 # TSP-SimAn
 
 ## Building
-there is a makefile in `/src` directory that includes build information using `g++` compiler. On a Unix compatible system, one can use the command to build the project:
+There is a makefile in `/src` directory that includes build information using `g++` compiler. On a Unix compatible system, one can use the command to build the project:
 
 `make`
 
