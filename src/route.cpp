@@ -1,5 +1,16 @@
 #include "route.h"
 
+	int minDist(const dist *list,const bool *visited,int n){
+		dist lim=DIST_MAX;
+		register int res=-1;
+		for(int i=0;i<n;i++)
+			if(list[i]<lim && !visited[i]){
+				lim=list[i];
+				res=i;
+			}
+		return res;
+	}
+
 	route::route(int _n,dist **matrix){
 		distances=matrix;
 		this->n=_n;
@@ -14,6 +25,19 @@
 		memcpy(order,arr,n*sizeof(int));
 		eval();
 
+	}
+
+	void route::greedy(int start){
+		int index=start;
+		bool visited[n]={false};
+		visited[start]=true;
+		for(int i=1;i<n;i++){
+			order[index]=minDist(distances[index],visited,n);
+			index=order[index];
+			visited[index]=true;
+		}
+			order[index]=start;
+		eval();
 	}
 
 	route& route::operator=(const route& rval){

@@ -46,19 +46,16 @@ int main(int argc, char** argv){
 		for(int f=0;f<n;f++)
 			for(int t=0;t<n;t++)
 				d[f][t]=sqrt((x[f]-x[t])*(x[f]-x[t]) + (y[f]-y[t])*(y[f]-y[t]));
+		for(int i=0;i<n;i++)
+			d[i][i]=DIST_MAX;
 	}
 
 
-	int arr[n];
-	for(int i=0;i<n-1;i++)
-		arr[i]=i+1;
-	arr[n-1]=0;
 	route r(n,d);
 	route bestRoute(n,d);
-		bestRoute.obj=FLT_MAX;
-	r.setOrder(arr);
+		bestRoute.obj=DIST_MAX;
+	r.greedy(0);
 	r.printObj();
-
 	srand(seed);
 
 
